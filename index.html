@@ -1,0 +1,130 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shukrons_cake</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body class="bg-rose-50/50 text-gray-800 font-sans p-4 pb-10">
+    <div class="max-w-md mx-auto">
+        <!-- Шапка -->
+        <div class="text-center mb-6 mt-2">
+            <h1 class="text-2xl font-black text-rose-600 tracking-wide">🌸 SHUKRONS CAKE 🌸</h1>
+            <p class="text-xs text-rose-400 font-medium mt-1">Домашние десерты в Душанбе с любовью 💕</p>
+        </div>
+
+        <!-- Сетка товаров -->
+        <div class="space-y-4">
+
+            <!-- Товар 1: Трайфл Милка -->
+            <div
+                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
+                <!-- Вставьте вашу ссылку на фото вместо src -->
+                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/Px7MdkNh/IMG-1600.jpg"
+                    alt="Трайфл Милка">
+                <div class="p-4">
+                    <span
+                        class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Трайфл</span>
+                    <h2 class="text-lg font-bold text-gray-800 mt-2">Трайфл «Милка»</h2>
+                    <p class="text-xs text-gray-500 mt-1">Шоколадный бисквит, крем-чиз, начинка из нежного банана и
+                        сочной клубники под покрытием из шоколадного ганаша. 😍</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-extrabold text-rose-600">35 смн.</span>
+                        <button onclick="orderDessert('Трайфл Милка', 35)"
+                            class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-sm shadow-rose-300">
+                            В корзину 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 2: Мини Трайфл -->
+            <div
+                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
+                <!-- Вставьте вашу ссылку на фото вместо src -->
+                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/s2rj0BcC/photo-2026-07-16-00-54-27.jpg"
+                    alt="Мини Трайфл">
+                <div class="p-4">
+                    <span
+                        class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Мини-стаканчик</span>
+                    <h2 class="text-lg font-bold text-gray-800 mt-2">Мини-трайфл в стаканчике</h2>
+                    <p class="text-xs text-gray-500 mt-1">Удобный мини-формат любимого десерта! Шоколадный бисквит,
+                        крем-чиз, банан, клубника и шоколадный ганаш. 🧁</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-extrabold text-rose-600">20 смн.</span>
+                        <button onclick="orderDessert('Мини-трайфл', 20)"
+                            class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-sm shadow-rose-300">
+                            В корзину 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 3: Блинный торт -->
+            <div
+                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
+                <!-- Вставьте вашу ссылку на фото вместо src -->
+                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/0NcTdrXS/images.jpg" alt="Блинный торт">
+                <div class="p-4">
+                    <span
+                        class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Торт</span>
+                    <h2 class="text-lg font-bold text-gray-800 mt-2">Блинный торт</h2>
+                    <p class="text-xs text-gray-500 mt-1">Классические тонкие блинчики, пропитанные нежнейшим крем-чизом
+                        с начинкой из банана и свежей клубники. 🥞🍰</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-extrabold text-rose-600">120 смн.</span>
+                        <button onclick="orderDessert('Блинный торт', 120)"
+                            class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-sm shadow-rose-300">
+                            В корзину 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Товар 4: Пирожное корзинка -->
+            <div
+                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
+                <!-- Вставьте вашу ссылку на фото вместо src -->
+                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/fWxv61Zf/photo-2026-07-16-00-54-48.jpg"
+                    alt="Корзинка">
+                <div class="p-4">
+                    <span
+                        class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Пирожное</span>
+                    <h2 class="text-lg font-bold text-gray-800 mt-2">Пирожное «Корзинка»</h2>
+                    <p class="text-xs text-gray-500 mt-1">Хрустящее песочное тесто, много воздушного крем-чиза и спелая,
+                        сочная клубника сверху. 🍓</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-xl font-extrabold text-rose-600">25 смн.</span>
+                        <button onclick="orderDessert('Пирожное Корзинка', 25)"
+                            class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2.5 rounded-2xl transition shadow-sm shadow-rose-300">
+                            В корзину 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        function orderDessert(name, price) {
+            const data = {
+                product_name: name,
+                price: price
+            };
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+        }
+    </script>
+</body>
+
+</html>
