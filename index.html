@@ -4,132 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shukrons_cake</title>
+    <title>shukrons_cake — Витрина Худжанд</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        /* Плавное скрытие скроллбара для красивых категорий */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
-<body class="bg-rose-50/50 text-gray-800 font-sans p-4 pb-28">
+<body class="bg-rose-50/40 text-gray-800 font-sans p-4 pb-32 selection:bg-rose-200">
     <div class="max-w-md mx-auto">
-        <!-- Шапка -->
-        <div class="text-center mb-6 mt-2">
-            <h1 class="text-2xl font-black text-rose-600 tracking-wide">🌸 SHUKRONS CAKE 🌸</h1>
-            <p class="text-xs text-rose-400 font-medium mt-1">Домашние десерты в Душанбе с любовью 💕</p>
+
+        <!-- Шапка витрины -->
+        <div class="text-center mb-5 mt-2 bg-white rounded-3xl p-5 shadow-sm border border-rose-100/60">
+            <h1 class="text-2xl font-black text-rose-600 tracking-wide drop-shadow-sm">🌸 SHUKRONS CAKE 🌸</h1>
+            <p class="text-xs text-rose-400 font-semibold mt-1 flex items-center justify-center gap-1">
+                <span>✨ Домашние десерты в Худжанде с любовью</span>
+                <span class="animate-pulse">💕</span>
+            </p>
         </div>
 
-        <!-- Сетка товаров -->
-        <div class="space-y-4">
-
-            <!-- Товар 1: Трайфл Милка -->
-            <div
-                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
-                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/Px7MdkNh/IMG-1600.jpg"
-                    alt="Трайфл Милка">
-                <div class="p-4">
-                    <span
-                        class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Трайфл</span>
-                    <h2 class="text-lg font-bold text-gray-800 mt-2">Трайфл «Милка»</h2>
-                    <p class="text-xs text-gray-500 mt-1">Шоколадный бисквит, крем-чиз, начинка из нежного банана и
-                        сочной клубники под покрытием из шоколадного ганаша. 😍</p>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-xl font-extrabold text-rose-600">35 смн.</span>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQuantity('Трайфл Милка', 35, -1)"
-                                class="bg-rose-100 text-rose-600 w-8 h-8 rounded-xl font-bold hover:bg-rose-200 transition">-</button>
-                            <span id="count-Трайфл Милка" class="font-bold text-sm w-4 text-center">0</span>
-                            <button onclick="changeQuantity('Трайфл Милка', 35, 1)"
-                                class="bg-rose-500 text-white w-8 h-8 rounded-xl font-bold hover:bg-rose-600 transition">+</button>
-                        </div>
-                    </div>
-                </div>
+        <!-- Поисковая строка и фильтр категорий -->
+        <div class="mb-5 sticky top-2 z-40 bg-rose-50/80 backdrop-blur-md py-1 rounded-2xl">
+            <div class="flex overflow-x-auto gap-2 pb-1 no-scrollbar" id="categories-tabs">
+                <button onclick="filterCategory('Все')" id="cat-all"
+                    class="whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition bg-rose-500 text-white shadow-md shadow-rose-200">
+                    ✨ Все меню
+                </button>
+                <!-- Сюда JS автоматически добавит вкладки из вашей БД -->
             </div>
-
-            <!-- Товар 2: Мини Трайфл -->
-            <div
-                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
-                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/s2rj0BcC/photo-2026-07-16-00-54-27.jpg"
-                    alt="Мини Трайфл">
-                <div class="p-4">
-                    <span
-                        class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Мини-стаканчик</span>
-                    <h2 class="text-lg font-bold text-gray-800 mt-2">Мини-трайфл в стаканчике</h2>
-                    <p class="text-xs text-gray-500 mt-1">Удобный mini-формат любимого десерта! Шоколадный бисквит,
-                        крем-чиз, банан, клубника и шоколадный ганаш. 🧁</p>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-xl font-extrabold text-rose-600">20 смн.</span>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQuantity('Мини-трайфл', 20, -1)"
-                                class="bg-rose-100 text-rose-600 w-8 h-8 rounded-xl font-bold hover:bg-rose-200 transition">-</button>
-                            <span id="count-Мини-трайфл" class="font-bold text-sm w-4 text-center">0</span>
-                            <button onclick="changeQuantity('Мини-трайфл', 20, 1)"
-                                class="bg-rose-500 text-white w-8 h-8 rounded-xl font-bold hover:bg-rose-600 transition">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Товар 3: Блинный торт -->
-            <div
-                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
-                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/0NcTdrXS/images.jpg" alt="Блинный торт">
-                <div class="p-4">
-                    <span
-                        class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Торт</span>
-                    <h2 class="text-lg font-bold text-gray-800 mt-2">Блинный торт</h2>
-                    <p class="text-xs text-gray-500 mt-1">Классические тонкие блинчики, пропитанные нежнейшим крем-чизом
-                        с начинкой из банана и свежей клубники. 🥞🍰</p>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-xl font-extrabold text-rose-600">120 смн.</span>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQuantity('Блинный торт', 120, -1)"
-                                class="bg-rose-100 text-rose-600 w-8 h-8 rounded-xl font-bold hover:bg-rose-200 transition">-</button>
-                            <span id="count-Блинный торт" class="font-bold text-sm w-4 text-center">0</span>
-                            <button onclick="changeQuantity('Блинный торт', 120, 1)"
-                                class="bg-rose-500 text-white w-8 h-8 rounded-xl font-bold hover:bg-rose-600 transition">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Товар 4: Пирожное корзинка -->
-            <div
-                class="bg-white rounded-3xl shadow-md border border-rose-100 overflow-hidden transition hover:shadow-lg">
-                <img class="w-full h-48 object-cover" src="https://i.postimg.cc/fWxv61Zf/photo-2026-07-16-00-54-48.jpg"
-                    alt="Корзинка">
-                <div class="p-4">
-                    <span
-                        class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase">Пирожное</span>
-                    <h2 class="text-lg font-bold text-gray-800 mt-2">Пирожное «Корзинка»</h2>
-                    <p class="text-xs text-gray-500 mt-1">Хрустящее песочное тесто, много воздушного крем-чиза и спелая,
-                        сочная клубника сверху. 🍓</p>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-xl font-extrabold text-rose-600">25 смн.</span>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQuantity('Пирожное Корзинка', 25, -1)"
-                                class="bg-rose-100 text-rose-600 w-8 h-8 rounded-xl font-bold hover:bg-rose-200 transition">-</button>
-                            <span id="count-Пирожное Корзинка" class="font-bold text-sm w-4 text-center">0</span>
-                            <button onclick="changeQuantity('Пирожное Корзинка', 25, 1)"
-                                class="bg-rose-500 text-white w-8 h-8 rounded-xl font-bold hover:bg-rose-600 transition">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Лоадер при загрузке JSON -->
+        <div id="loader" class="text-center py-12">
+            <div class="inline-block w-8 h-8 border-4 border-rose-500 border-t-transparent rounded-full animate-spin">
+            </div>
+            <p class="text-xs text-rose-400 font-medium mt-3">Загружаем свежие вкусняшки... 🧁</p>
+        </div>
+
+        <!-- Сетка товаров (Рендерится динамически из БД через products.json) -->
+        <div class="space-y-4" id="products-grid"></div>
+
     </div>
 
     <!-- Фиксированная нижняя панель корзины -->
     <div id="cart-panel"
-        class="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 p-4 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] transform translate-y-full transition-transform duration-300 z-50">
+        class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-rose-100 p-4 shadow-[0_-8px_30px_rgba(225,29,72,0.06)] transform translate-y-full transition-all duration-300 z-50 rounded-t-3xl">
         <div class="max-w-md mx-auto flex items-center justify-between">
             <div>
-                <p class="text-xs text-gray-400 font-medium">Ваш заказ:</p>
-                <p id="cart-summary" class="text-sm font-bold text-gray-800">0 товаров</p>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Ваш сладкий выбор:</p>
+                <p id="cart-summary" class="text-sm font-black text-gray-800">0 десертов</p>
             </div>
             <button onclick="sendOrder()"
-                class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-6 rounded-2xl transition shadow-lg shadow-rose-200 flex items-center gap-2">
+                class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-6 rounded-2xl transition-all active:scale-95 shadow-lg shadow-rose-200 flex items-center gap-3">
                 <span>Оформить заказ</span>
-                <span id="total-price" class="bg-rose-600 text-white text-xs px-2 py-1 rounded-lg">0 смн.</span>
+                <span id="total-price" class="bg-rose-600 text-white text-xs px-2.5 py-1 rounded-xl font-extrabold">0
+                    смн.</span>
             </button>
         </div>
     </div>
@@ -139,9 +77,115 @@
         tg.ready();
         tg.expand();
 
-        // Объект корзины: {"название": {price: 35, quantity: 1}}
+        // Хранилища данных
+        let allProducts = [];
+        let currentCategory = 'Все';
         const cart = {};
 
+        // Загрузка товаров из products.json
+        async function loadProducts() {
+            try {
+                const response = await fetch('products.json?v=' + Date.now()); // Защита от кэширования
+                allProducts = await response.json();
+
+                document.getElementById('loader').classList.add('hidden');
+                generateCategoryTabs();
+                renderProducts();
+            } catch (error) {
+                console.error("Ошибка при загрузке продуктов:", error);
+                document.getElementById('loader').innerHTML = `
+                    <p class="text-sm text-rose-500 font-semibold">Не удалось загрузить меню витрины... 🥺</p>
+                    <p class="text-xs text-gray-400 mt-1">Проверьте генерацию файла products.json ботом</p>
+                `;
+            }
+        }
+
+        // Динамическое создание вкладок категорий на основе данных из JSON
+        function generateCategoryTabs() {
+            const tabsContainer = document.getElementById('categories-tabs');
+            const categories = new Set();
+
+            allProducts.forEach(p => {
+                if (p.category) categories.add(p.category);
+            });
+
+            categories.forEach(catName => {
+                const btn = document.createElement('button');
+                btn.innerText = catName;
+                btn.id = `cat-${catName}`;
+                btn.className = "whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-gray-600 border border-rose-100 hover:bg-rose-50";
+                btn.onclick = () => filterCategory(catName);
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        // Фильтрация вкладок
+        function filterCategory(category) {
+            currentCategory = category;
+
+            // Сброс стилей всех кнопок
+            const buttons = document.querySelectorAll('#categories-tabs button');
+            buttons.forEach(btn => {
+                btn.className = "whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-gray-600 border border-rose-100";
+            });
+
+            // Подсветка активной вкладки
+            const activeId = category === 'Все' ? 'cat-all' : `cat-${category}`;
+            const activeBtn = document.getElementById(activeId);
+            if (activeBtn) {
+                activeBtn.className = "whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition bg-rose-500 text-white shadow-md shadow-rose-200";
+            }
+
+            renderProducts();
+        }
+
+        // Генерация карточек товаров на витрине
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = currentCategory === 'Все'
+                ? allProducts
+                : allProducts.filter(p => p.category === currentCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="text-center text-xs text-gray-400 py-8">В этой категории пока пусто... 🌸</p>`;
+                return;
+            }
+
+            filtered.forEach(product => {
+                const count = cart[product.name] ? cart[product.name].quantity : 0;
+
+                // Извлекаем чистый тег без смайлика для бейджа
+                const cleanBadge = product.category.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDC00-\uDFFF]/g, '').trim();
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl shadow-sm border border-rose-100/70 overflow-hidden transition-all duration-300 hover:shadow-md";
+                card.innerHTML = `
+                    <div class="relative">
+                        <img class="w-full h-52 object-cover" src="${product.image_url}" alt="${product.name}" onerror="this.src='https://placehold.co/600x400?text=Shukrons+Cake'">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rose-600 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider border border-rose-50/50 shadow-sm">${cleanBadge}</span>
+                    </div>
+                    <div class="p-4">
+                        <h2 class="text-lg font-bold text-gray-800 leading-tight">${product.name}</h2>
+                        <p class="text-xs text-gray-400 font-medium mt-1.5 leading-relaxed">${product.description}</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-black text-rose-600">${product.price} <span class="text-sm font-bold">смн.</span></span>
+                            <div class="flex items-center bg-rose-50 rounded-xl p-0.5 border border-rose-100/50">
+                                <button onclick="changeQuantity('${product.name}', ${product.price}, -1)"
+                                    class="text-rose-600 w-8 h-8 rounded-lg font-black text-base hover:bg-white transition flex items-center justify-center active:scale-90">-</button>
+                                <span id="count-${product.name}" class="font-black text-xs w-6 text-center text-gray-700">${count}</span>
+                                <button onclick="changeQuantity('${product.name}', ${product.price}, 1)"
+                                    class="bg-rose-500 text-white w-8 h-8 rounded-xl font-black text-base hover:bg-rose-600 shadow-sm transition flex items-center justify-center active:scale-90">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Логика работы инкремента/декремента корзины
         function changeQuantity(name, price, change) {
             if (!cart[name]) {
                 cart[name] = { price: price, quantity: 0 };
@@ -149,17 +193,19 @@
 
             cart[name].quantity += change;
 
-            // Если количество опустилось до 0, удаляем товар из корзины
             if (cart[name].quantity <= 0) {
                 delete cart[name];
-                document.getElementById(`count-${name}`).innerText = 0;
+                const el = document.getElementById(`count-${name}`);
+                if (el) el.innerText = 0;
             } else {
-                document.getElementById(`count-${name}`).innerText = cart[name].quantity;
+                const el = document.getElementById(`count-${name}`);
+                if (el) el.innerText = cart[name].quantity;
             }
 
             updateCartPanel();
         }
 
+        // Обновление состояния нижней выезжающей плашки
         function updateCartPanel() {
             let totalItems = 0;
             let totalPrice = 0;
@@ -174,18 +220,16 @@
             const priceTag = document.getElementById('total-price');
 
             if (totalItems > 0) {
-                // Показываем панель корзины
                 panel.classList.remove('translate-y-full');
                 summary.innerText = `${totalItems} шт. десертов`;
                 priceTag.innerText = `${totalPrice} смн.`;
             } else {
-                // Скрываем панель корзины
                 panel.classList.add('translate-y-full');
             }
         }
 
+        // Сборка заказа и отправка в RAM бота
         function sendOrder() {
-            // Формируем красивый список товаров для отправки боту
             const orderList = [];
             let grandTotal = 0;
 
@@ -206,10 +250,12 @@
                 total_price: grandTotal
             };
 
-            // Отправляем JSON-строку боту в Telegram
             tg.sendData(JSON.stringify(orderData));
             tg.close();
         }
+
+        // Инициализация скрипта при загрузке страницы
+        window.onload = loadProducts;
     </script>
 </body>
 
