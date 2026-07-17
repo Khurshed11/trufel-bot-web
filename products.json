@@ -1,18 +1,34 @@
 [
     {
         "id": 1,
-        "name": "Трайфл милка",
-        "description": "ничего",
-        "price": 450.0,
-        "image_url": "AgACAgIAAxkBAAMMalfNHJfZ-OFZ9pAhgTR5mRDFjSIAApwbaxthwbhKzmYdnS1bWI4BAAMCAAN4AAM9BA",
-        "category": "Трайфлы"
+        "name": "Трайфл «Милка»",
+        "description": "Шоколадный бисквит, крем-чиз, начинка из нежного банана и сочной клубники под покрытием из шоколадного ганаша. 😍",
+        "price": 35,
+        "image_url": "https://i.postimg.cc/Px7MdkNh/IMG-1600.jpg",
+        "category": "🧁 Трайфлы"
     },
     {
         "id": 2,
-        "name": "блинный торт",
-        "description": "ничего нету",
-        "price": 65.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_0.jpg",
-        "category": "Пирожные"
+        "name": "Мини-трайфл в стаканчике",
+        "description": "Удобный mini-формат любимого десерта! Шоколадный бисквит, крем-чиз, банан, клубника и шоколадный ганаш. 🧁",
+        "price": 20,
+        "image_url": "https://i.postimg.cc/s2rj0BcC/photo-2026-07-16-00-54-27.jpg",
+        "category": "🧁 Трайфлы"
+    },
+    {
+        "id": 3,
+        "name": "Блинный торт",
+        "description": "Классические тонкие блинчики, пропитанные нежнейшим крем-чизом с начинкой из банана и свежей клубники. 🥞🍰",
+        "price": 120,
+        "image_url": "https://i.postimg.cc/0NcTdrXS/images.jpg",
+        "category": "🎂 Торты"
+    },
+    {
+        "id": 4,
+        "name": "Пирожное «Корзинка»",
+        "description": "Хрустящее песочное тесто, много воздушного крем-чиза и спелая, сочная клубника сверху. 🍓",
+        "price": 25,
+        "image_url": "https://i.postimg.cc/fWxv61Zf/photo-2026-07-16-00-54-48.jpg",
+        "category": "🧺 Корзинки"
     }
 ]
