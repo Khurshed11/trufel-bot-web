@@ -22,13 +22,5 @@
         "price": 120,
         "image_url": "https://i.postimg.cc/0NcTdrXS/images.jpg",
         "category": "🎂 Торты"
-    },
-    {
-        "id": 4,
-        "name": "Пирожное «Корзинка»",
-        "description": "Хрустящее песочное тесто, много воздушного крем-чиза и спелая, сочная клубника сверху. 🍓",
-        "price": 25,
-        "image_url": "https://i.postimg.cc/fWxv61Zf/photo-2026-07-16-00-54-48.jpg",
-        "category": "🧺 Корзинки"
     }
 ]
