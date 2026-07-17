@@ -1,9 +1,18 @@
 [
     {
-        "name": "Трайфл «Милка»",
-        "category": "🧁 Трайфлы",
-        "description": "Шоколадный бисквит, крем-чиз, начинка из нежного банана и сочной клубники под покрытием из шоколадного ганаша. 😍",
-        "price": 35,
-        "image_url": "https://i.postimg.cc/Px7MdkNh/IMG-1600.jpg"
+        "id": 1,
+        "name": "Трайфл милка",
+        "description": "ничего",
+        "price": 450.0,
+        "image_url": "AgACAgIAAxkBAAMMalfNHJfZ-OFZ9pAhgTR5mRDFjSIAApwbaxthwbhKzmYdnS1bWI4BAAMCAAN4AAM9BA",
+        "category": "Трайфлы"
+    },
+    {
+        "id": 2,
+        "name": "блинный торт",
+        "description": "ничего нету",
+        "price": 65.0,
+        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_0.jpg",
+        "category": "Пирожные"
     }
 ]
