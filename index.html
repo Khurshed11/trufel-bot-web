@@ -23,16 +23,23 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
+        /* Стильный кондитерский паттерн для фона */
+        .premium-bg {
+            background-color: #fff5f6;
+            background-image: radial-gradient(#fda4af 0.75px, transparent 0.75px), radial-gradient(#fda4af 0.75px, #fff5f6 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
     </style>
 </head>
 
-<body
-    class="bg-gradient-to-br from-rose-50/60 to-amber-50/40 text-gray-800 font-sans p-4 pb-36 selection:bg-rose-200 min-h-screen">
+<body class="premium-bg text-gray-800 font-sans p-4 pb-36 selection:bg-rose-200 min-h-screen">
     <div class="max-w-md mx-auto">
 
         <!-- Шапка витрины -->
         <div
-            class="text-center mb-6 mt-2 bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-rose-100/40">
+            class="text-center mb-6 mt-2 bg-white/90 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(251,113,133,0.08)] border border-rose-100/60">
             <h1
                 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-500 tracking-wider drop-shadow-sm">
                 🌸 SHUKRONS CAKE 🌸</h1>
@@ -59,14 +66,14 @@
             <p class="text-xs text-rose-400 font-semibold mt-3">Загружаем свежие вкусняшки... 🧁</p>
         </div>
 
-        <!-- Сетка товаров (Рендерится динамически из БД через products.json) -->
+        <!-- Сетка товаров -->
         <div class="space-y-5" id="products-grid"></div>
 
     </div>
 
     <!-- Фиксированная нижняя панель корзины -->
     <div id="cart-panel"
-        class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-rose-100/60 p-4 shadow-[0_-10px_40px_rgba(225,29,72,0.08)] transform translate-y-full transition-all duration-300 z-50 rounded-t-[2.5rem]">
+        class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-rose-100/60 p-4 shadow-[0_-10px_40px_rgba(225,29,72,0.12)] transform translate-y-full transition-all duration-300 z-50 rounded-t-[2.5rem]">
         <div class="max-w-md mx-auto flex items-center justify-between gap-4">
             <div>
                 <p class="text-[10px] text-gray-400 font-extrabold uppercase tracking-widest">Сладкий выбор:</p>
@@ -101,12 +108,10 @@
         tg.expand();
         tg.enableClosingConfirmation();
 
-        // Хранилища данных
         let allProducts = [];
         let currentCategory = 'Все';
         const cart = {};
 
-        // Загрузка товаров из products.json
         async function loadProducts() {
             try {
                 const response = await fetch('products.json?v=' + Date.now());
@@ -124,7 +129,6 @@
             }
         }
 
-        // Динамическое создание вкладок категорий
         function generateCategoryTabs() {
             const tabsContainer = document.getElementById('categories-tabs');
             const categories = new Set();
@@ -143,7 +147,6 @@
             });
         }
 
-        // Фильтрация вкладок
         function filterCategory(category) {
             currentCategory = category;
 
@@ -161,7 +164,6 @@
             renderProducts();
         }
 
-        // ЛОГИКА ОТКРЫТИЯ И ЗАКРЫТИЯ LIGHTBOX C НАТИВНОЙ КНОПКОЙ ТЕЛЕГРАМА
         function openPhotoModal(imageUrl, productName) {
             const modal = document.getElementById('photo-modal');
             const modalImg = document.getElementById('modal-img');
@@ -178,7 +180,6 @@
                 modalImg.classList.remove('scale-95');
             }, 10);
 
-            // Включаем встроенную кнопку "Назад" в Telegram
             if (tg.BackButton) {
                 tg.BackButton.show();
                 tg.BackButton.onClick(closePhotoModal);
@@ -197,13 +198,11 @@
                 modal.classList.add('hidden');
             }, 300);
 
-            // Прячем кнопку "Назад" в Telegram
             if (tg.BackButton) {
                 tg.BackButton.hide();
             }
         }
 
-        // Генерация карточек товаров на витрине
         function renderProducts() {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = '';
@@ -222,7 +221,8 @@
                 const cleanBadge = product.category.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDC00-\uDFFF]/g, '').trim();
 
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-[2rem] shadow-[0_4px_20px_rgba(244,63,94,0.03)] border border-rose-100/60 overflow-hidden transition-all duration-300 hover:shadow-md group";
+                /* Увеличены тени карточек для лучшего контраста с новым узорчатым фоном */
+                card.className = "bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(244,63,94,0.06)] border border-rose-100/70 overflow-hidden transition-all duration-300 hover:shadow-lg group";
                 card.innerHTML = `
                     <div class="relative overflow-hidden">
                         <img class="w-full h-56 object-cover cursor-zoom-in transition-transform duration-500 group-hover:scale-105" 
@@ -231,11 +231,12 @@
                              alt="${product.name}" 
                              onclick="openPhotoModal('${product.image_url}', '${product.name.replace(/'/g, "\\'")}')"
                              onerror="this.src='https://placehold.co/600x400?text=Shukrons+Cake'">
-                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-rose-600 text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-rose-100/30 shadow-sm">${cleanBadge}</span>
+                        <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-rose-600 text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-rose-100/30 shadow-sm">${cleanBadge}</span>
                     </div>
                     <div class="p-5">
                         <h2 class="text-lg font-extrabold text-gray-800 leading-snug">${product.name}</h2>
-                        <p class="text-xs text-gray-400 font-medium mt-2 leading-relaxed h-12 overflow-hidden text-ellipsis line-clamp-2">${product.description}</p>
+                        <!-- Описание исправлено: убраны h-12 и line-clamp-2, текст теперь открывается полностью -->
+                        <p class="text-xs text-gray-500 font-medium mt-2 leading-relaxed whitespace-pre-line">${product.description}</p>
                         <div class="flex justify-between items-center mt-5 pt-1">
                             <span class="text-xl font-black text-rose-600 tracking-tight">${product.price} <span class="text-xs font-bold text-rose-400">смн.</span></span>
                             <div class="flex items-center bg-rose-50/60 rounded-2xl p-1 border border-rose-100/40 shadow-inner">
@@ -252,9 +253,7 @@
             });
         }
 
-        // Логика работы инкремента/декремента корзины с тактильным откликом
         function changeQuantity(name, price, change) {
-            // Вызываем легкую вибрацию при клике
             if (tg.HapticFeedback) {
                 tg.HapticFeedback.impactOccurred('light');
             }
@@ -277,7 +276,6 @@
             updateCartPanel();
         }
 
-        // Обновление состояния нижней выезжающей плашки
         function updateCartPanel() {
             let totalItems = 0;
             let totalPrice = 0;
@@ -300,7 +298,6 @@
             }
         }
 
-        // Сборка заказа и отправка в RAM бота
         function sendOrder() {
             const orderList = [];
             let grandTotal = 0;
