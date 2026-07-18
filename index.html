@@ -17,6 +17,12 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Дополнительный стиль для размытия заднего фона Lightbox */
+        .modal-backdrop-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
     </style>
 </head>
 
@@ -69,6 +75,19 @@
                 <span id="total-price" class="bg-rose-600 text-white text-xs px-2.5 py-1 rounded-xl font-extrabold">0
                     смн.</span>
             </button>
+        </div>
+    </div>
+
+    <!-- КРАСИВОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА ФОТО (LIGHTBOX) -->
+    <div id="photo-modal" onclick="closePhotoModal()"
+        class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center flex-col p-4 cursor-zoom-out modal-backdrop-blur transition-opacity duration-300 opacity-0">
+        <span
+            class="absolute top-5 right-6 text-white text-4xl font-bold cursor-pointer opacity-70 hover:opacity-100">&times;</span>
+        <img id="modal-img"
+            class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-white/10 transform scale-95 transition-transform duration-300"
+            src="" alt="Десерт крупным планом">
+        <div id="modal-caption"
+            class="mt-4 text-white text-lg font-bold text-center px-4 tracking-wide bg-black/40 py-1.5 px-4 rounded-full border border-white/5">
         </div>
     </div>
 
@@ -139,6 +158,39 @@
             renderProducts();
         }
 
+        // ЛОГИКА ОТКРЫТИЯ И ЗАКРЫТИЯ LIGHTBOX
+        function openPhotoModal(imageUrl, productName) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+
+            modalImg.src = imageUrl;
+            modalCaption.innerText = productName;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Небольшой таймаут для плавного появления анимации CSS
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closePhotoModal() {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+
+            modal.classList.add('opacity-0');
+            modalImg.classList.add('scale-95');
+
+            // Скрываем элемент после завершения анимации перехода
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
         // Генерация карточек товаров на витрине
         function renderProducts() {
             const grid = document.getElementById('products-grid');
@@ -162,8 +214,13 @@
                 const card = document.createElement('div');
                 card.className = "bg-white rounded-3xl shadow-sm border border-rose-100/70 overflow-hidden transition-all duration-300 hover:shadow-md";
                 card.innerHTML = `
-                    <div class="relative">
-                        <img class="w-full h-52 object-cover" src="${product.image_url}" alt="${product.name}" onerror="this.src='https://placehold.co/600x400?text=Shukrons+Cake'">
+                    <div class="relative overflow-hidden group">
+                        <!-- Добавлен вызов openPhotoModal на клик по картинке и курсор лупы -->
+                        <img class="w-full h-52 object-cover cursor-zoom-in active:scale-[0.99] transition-transform duration-200" 
+                             src="${product.image_url}" 
+                             alt="${product.name}" 
+                             onclick="openPhotoModal('${product.image_url}', '${product.name.replace(/'/g, "\\'")}')"
+                             onerror="this.src='https://placehold.co/600x400?text=Shukrons+Cake'">
                         <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rose-600 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider border border-rose-50/50 shadow-sm">${cleanBadge}</span>
                     </div>
                     <div class="p-4">
