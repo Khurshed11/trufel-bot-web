@@ -30,5 +30,13 @@
         "price": 8.0,
         "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_4.jpg",
         "category": "🧺 Корзинки"
+    },
+    {
+        "id": 6,
+        "name": "Венские вафли",
+        "description": "Настоящее венское удовольствие! Пышные домашние вафли, утопающие в роскошном молочном шоколаде, с добавлением сочных фруктов и спелых ягод. Хрустящие снаружи и мягкие внутри — оторваться просто невозможно! 🧇🍓🍫",
+        "price": 20.0,
+        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_5.jpg",
+        "category": "🧇 Вафли"
     }
 ]
