@@ -38,5 +38,13 @@
         "price": 20.0,
         "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_5.jpg",
         "category": "🧇 Вафли"
+    },
+    {
+        "id": 7,
+        "name": "🥞 Блинные роллы",
+        "description": "Нежный блинный ролл с начинкой из премиального шоколада и свежих фруктов. Легкий, в меру сладкий и невероятно аппетитный. Попробуйте идеальное сочетание, которое дарит радость с первого кусочка!",
+        "price": 55.0,
+        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_6.jpg",
+        "category": "🥞Роллы"
     }
 ]
