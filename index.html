@@ -37,9 +37,17 @@
 <body class="premium-bg text-gray-800 font-sans p-4 pb-36 selection:bg-rose-200 min-h-screen">
     <div class="max-w-md mx-auto">
 
-        <!-- Шапка витрины -->
+        <!-- Шапка витрины с Вашим Логотипом -->
         <div
-            class="text-center mb-6 mt-2 bg-white/90 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(251,113,133,0.08)] border border-rose-100/60">
+            class="text-center mb-6 mt-2 bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-[0_8px_30px_rgb(251,113,133,0.08)] border border-rose-100/60 flex flex-col items-center">
+            <!-- Блок логотипа -->
+            <div
+                class="w-24 h-24 mb-3 rounded-full overflow-hidden shadow-md border-2 border-rose-200 bg-white flex items-center justify-center">
+                <img src="logo.jpg" alt="Shukron's Cake Logo" class="w-full h-full object-cover"
+                    onerror="this.style.display='none'">
+                onerror="this.style.display='none'">
+            </div>
+
             <h1
                 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-500 tracking-wider drop-shadow-sm">
                 🌸 SHUKRONS CAKE 🌸</h1>
@@ -221,7 +229,6 @@
                 const cleanBadge = product.category.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDC00-\uDFFF]/g, '').trim();
 
                 const card = document.createElement('div');
-                /* Увеличены тени карточек для лучшего контраста с новым узорчатым фоном */
                 card.className = "bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(244,63,94,0.06)] border border-rose-100/70 overflow-hidden transition-all duration-300 hover:shadow-lg group";
                 card.innerHTML = `
                     <div class="relative overflow-hidden">
@@ -235,7 +242,6 @@
                     </div>
                     <div class="p-5">
                         <h2 class="text-lg font-extrabold text-gray-800 leading-snug">${product.name}</h2>
-                        <!-- Описание исправлено: убраны h-12 и line-clamp-2, текст теперь открывается полностью -->
                         <p class="text-xs text-gray-500 font-medium mt-2 leading-relaxed whitespace-pre-line">${product.description}</p>
                         <div class="flex justify-between items-center mt-5 pt-1">
                             <span class="text-xl font-black text-rose-600 tracking-tight">${product.price} <span class="text-xs font-bold text-rose-400">смн.</span></span>
