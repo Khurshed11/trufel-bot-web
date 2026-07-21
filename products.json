@@ -4,7 +4,7 @@
         "name": "Трайфл «Милка»",
         "description": "Настоящее шоколадное блаженство! Слои нежнейшего шоколадного бисквита, воздушный крем-чиз и сочный дуэт из спелого банана и ароматной клубники под роскошным покрытием из молочного ганаша. 🥰",
         "price": 65.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_2.jpg",
+        "image_url": "images/milka.jpg",
         "category": "🧁 Трайфлы"
     },
     {
@@ -12,7 +12,7 @@
         "name": "🍨 Мини трайфл в стаканчике",
         "description": "Ваш любимый вкус в удобном мини-формате! Идеальный баланс шоколадного бисквита, легкого крем-чиза, клубники и банана. Отличный повод порадовать себя прямо сейчас. 🌸",
         "price": 15.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_1.jpg",
+        "image_url": "images/mini_trifle.jpg",
         "category": "🧁 Трайфлы"
     },
     {
@@ -20,7 +20,7 @@
         "name": "Блинный торт",
         "description": "Тает во рту! Множество тончайших домашних блинчиков, бережно пропитанных бархатным крем-чизом. Внутри прячется нежная начинка из спелого банана и сочной клубники. Настоящий домашний уют. 🥞✨",
         "price": 120.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_3.jpg",
+        "image_url": "images/blin_tort.jpg",
         "category": "🎂 Торты"
     },
     {
@@ -28,7 +28,7 @@
         "name": "Пирожное «Корзинка»",
         "description": "Рассыпчатая, хрустящая корзинка из песочного теста, наполненная облаком нежного ванильного крем-чиза и украшенная крупной, спелой клубникой. Легкий и невероятно эстетичный десерт! 🍓",
         "price": 8.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_4.jpg",
+        "image_url": "images/korzinka.jpg",
         "category": "🧺 Корзинки"
     },
     {
@@ -36,7 +36,7 @@
         "name": "Венские вафли",
         "description": "Настоящее венское удовольствие! Пышные домашние вафли, утопающие в роскошном молочном шоколаде, с добавлением сочных фруктов и спелых ягод. Хрустящие снаружи и мягкие внутри — оторваться просто невозможно! 🧇🍓🍫",
         "price": 20.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_5.jpg",
+        "image_url": "images/vafli.jpg",
         "category": "🧇 Вафли"
     },
     {
@@ -44,7 +44,7 @@
         "name": "🥞 Блинные роллы",
         "description": "Нежный блинный ролл с начинкой из премиального шоколада и свежих фруктов. Легкий, в меру сладкий и невероятно аппетитный. Попробуйте идеальное сочетание, которое дарит радость с первого кусочка!",
         "price": 55.0,
-        "image_url": "https://api.telegram.org/file/bot8884200742:AAEstKrlYaVyQ7CGxbgzakrDDH_YP-9BW2s/photos/file_6.jpg",
+        "image_url": "images/blin_rolls.jpg",
         "category": "🥞Роллы"
     }
 ]

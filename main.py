@@ -55,7 +55,7 @@ def start_command(message):
         admin_text = "\n\n👑 *Вы зашли как кондитер-администратор!* Чтобы управлять меню, отправьте команду: /admin"
         
     welcome_text = (
-        f"Привет, солнышко {message.from_user.first_name}! 🌸\n\n"
+        f"Привет, {message.from_user.first_name}! 🌸\n\n"
         "Мы готовим самые нежные трайфлы и пирожные в Худжанде, чтобы сделать твой день чуточку слаще и счастливее. 🥰\n"
         "Каждый десерт готовится с огромной любовью исключительно из свежих ингредиентов! ✨\n\n"
         "Выбирай вкусняшки на нашей витрине ниже. Ждем твоего заказа! 👇" + admin_text
@@ -74,7 +74,7 @@ def business_card(message):
         "🧁 **Специализация:** Нежнейшие трайфлы, mini-десерты, домашние блинные торты и хрустящие песочные корзинки.\n"
         "━━━━━━━━━━━━━━━━━━━━\n"
         "🚗 **Условия доставки:**\n"
-        "• Мы отправляем ваши сладости по городу **Худжанд** через городское такси.\n"
+        "• Мы отправляем ваши сладости по через городское такси.\n"
         "• 🚕 Стоимость поездки вы **оплачиваете сами напрямую таксисту** при получении десерта.\n"
         "• Самовывоз — бесплатно! Будем безумно рады вашей улыбке при встрече. 🥰\n\n"
         "💳 **Оплата:** Перевод на карту **Банк Эсхата** / **Душанбе Сити** (номер `999992099`) после подтверждения вашего заказа."
@@ -142,7 +142,7 @@ def process_delivery_type(message):
 
     if message.text == "🚗 Доставка":
         bot.set_state(message.from_user.id, OrderStates.waiting_for_address, message.chat.id)
-        bot.send_message(message.chat.id, "Напишите, пожалуйста, ваш адрес в Худжанде (улица, дом, ориентир), куда привезти сладости: 🌸", reply_markup=types.ReplyKeyboardRemove())
+        bot.send_message(message.chat.id, "Напишите, пожалуйста, ваш адрес  (улица, дом, ориентир), куда привезти сладости: 🌸", reply_markup=types.ReplyKeyboardRemove())
     else:
         with bot.retrieve_data(message.from_user.id, message.chat.id) as data:
             data['address'] = "Самовывоз"
@@ -169,7 +169,7 @@ def process_phone(message):
         data['phone'] = phone
         
     bot.set_state(message.from_user.id, OrderStates.waiting_for_name, message.chat.id)
-    bot.send_message(message.chat.id, "Как нам ласково называть вас при общении? 😊 (Ваше имя):", reply_markup=types.ReplyKeyboardRemove())
+    bot.send_message(message.chat.id, "Как нам называть вас при общении? 😊 (Ваше имя):", reply_markup=types.ReplyKeyboardRemove())
 
 @bot.message_handler(state=OrderStates.waiting_for_name)
 def process_name(message):
@@ -382,7 +382,7 @@ def process_field_update(message):
     db.update_product_field(product_id, field_name, new_value)
     bot.delete_state(user_id, message.chat.id)
     
-    bot.send_message(message.chat.id, "✅ Изменения применены! Витрина на Vercel успешно обновлена автоматически. 🚀")
+    bot.send_message(message.chat.id, "✅ Изменения применены! Витрина  успешно обновлена автоматически. 🚀")
 
 
 # --- УПРАВЛЕНИЕ КАТЕГОРИЯМИ (ПРОСМОТР, ИЗМЕНЕНИЕ И УДАЛЕНИЕ) ---
