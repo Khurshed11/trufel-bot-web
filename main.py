@@ -10,6 +10,25 @@ from telebot.storage import StateMemoryStorage
 
 import config
 import database as db
+import os
+from threading import Thread
+from flask import Flask
+
+app = Flask('')
+
+
+@app.route('/')
+def home():
+  return 'Bot is running!'
+
+
+def run():
+  port = int(os.environ.get('PORT', 8080))
+  app.run(host='0.0.0.0', port=port)
+
+
+# Запускаем веб-сервер в отдельном потоке
+Thread(target=run).start()
 
 # Ваши данные GitHub
 GITHUB_TOKEN = "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"
