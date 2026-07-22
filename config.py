@@ -1,7 +1,7 @@
 # config.py
 
 # Токен вашего бота, полученный от @BotFather
-BOT_TOKEN = "8822914625:AAEUyVPLjVM6TJRrrTB_jhYfZaQHJG15gH4"
+BOT_TOKEN = "8822914625:AAFcH_vA8o_mw8FO3nSD2j7bYsBAL5y6yFw"
 
 # ID администраторов (ваш Telegram ID). Чтобы узнать свой ID, напишите боту @userinfobot
 # Можно указать несколько через запятую: [12345678, 87654321]
