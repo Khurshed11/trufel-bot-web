@@ -1,3 +1,22 @@
+import os
+from threading import Thread
+from flask import Flask
+
+app = Flask('')
+
+
+@app.route('/')
+def home():
+  return 'Bot is running!'
+
+
+def run():
+  port = int(os.environ.get('PORT', 8080))
+  app.run(host='0.0.0.0', port=port)
+
+
+# Запускаем веб-сервер в отдельном потоке
+Thread(target=run).start()
 import base64
 import json
 import sqlite3
