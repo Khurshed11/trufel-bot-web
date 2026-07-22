@@ -13,7 +13,7 @@ def home():
 def run():
   # Берем порт, который просит Render (10000), либо 8080 по умолчанию
   port = int(os.environ.get('PORT', 10000))
-  app.run(host='0.0.0.0', port=port)
+  app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
 
 
 # Запускаем веб-сервер
