@@ -1153,4 +1153,5 @@ bot.add_custom_filter(telebot.custom_filters.StateFilter(bot))
 
 if __name__ == "__main__":
     print("🤖 Бот успешно запущен в режиме сомони с авто-синхронизацией GitHub...")
-    bot.infinity_polling(skip_pending=True)
+    print("--- БОТ УСПЕШНО ЗАПУЩЕН И ЖДЕТ СООБЩЕНИЙ ---")
+bot.infinity_polling(none_stop=True)
