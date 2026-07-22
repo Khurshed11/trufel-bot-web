@@ -7,15 +7,16 @@ app = Flask('')
 
 @app.route('/')
 def home():
-  return 'Bot is running!'
+  return 'Bot is online!'
 
 
 def run():
-  port = int(os.environ.get('PORT', 8080))
+  # Берем порт, который просит Render (10000), либо 8080 по умолчанию
+  port = int(os.environ.get('PORT', 10000))
   app.run(host='0.0.0.0', port=port)
 
 
-# Запускаем веб-сервер в отдельном потоке
+# Запускаем веб-сервер
 Thread(target=run).start()
 import base64
 import json
